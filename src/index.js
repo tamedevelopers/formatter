@@ -1,1 +1,1 @@
-import currencyFormat from 'tame-formatter';
+import('../dist/currencyFormat-javascript.js')
