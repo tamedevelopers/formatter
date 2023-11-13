@@ -1,0 +1,31 @@
+{
+  "name": "tame-formatter",
+  "version": "1.0.0",
+  "description": "Number Formatter",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tamedevelopers/formatter.git"
+  },
+  "authors": [
+    "Fredrick Peterson <fredi.peterson2000@gmail.com>",
+    "Tame Developers <tamedevelopers@gmail.com>"
+  ],
+  "keywords": [
+    "intl number format",
+    "number format",
+    "formatter"
+  ],
+  "author": "",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/tamedevelopers/formatter/issues"
+  },
+  "homepage": "https://github.com/tamedevelopers/formatter#readme",
+  "dependencies": {
+    "jquery": "^3.7.1"
+  }
+}

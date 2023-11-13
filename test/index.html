@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tame Currency Format - Example</title>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <style>
+        .title{
+            margin: 0 0 20px;
+        }
+        .amount{
+            margin: 0 0 20px;
+            color: #3e3939;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <h1>JQuery Example</h1>
+    <div>
+        <span class="title">PRICE:</span>
+        <p class="amount" id="amount1"></p>
+
+        <span class="title">PRICE 2:</span>
+        <p class="amount" id="amount2"></p>
+
+        <button class="btn1">
+            Change Price 1 (Jquery)
+        </button>
+
+        <button class="btn2">
+            Change Price 2 (Javascript)
+        </button>
+    </div>
+
+    <script src="../dist/currencyFormat-jquery.min.js"></script>
+    <script src="../dist/currencyFormat-javascript..min.js"></script>
+    <script>
+        // not neccesary (only if you want to override the entire currency format with global currency symbol)
+        $.tameCurrency.init('$USD');
+
+        //regix for allowing only numbers and (.)
+        var regix = regix = /[^0-9.\s]/gi; 
+
+        // jquery
+        $("#amount1").text(
+            $.tameCurrency.format({
+                currency: 'TRY',
+                currency_symbol: 'TL', //string|true
+                amount: 8.99,
+                decimals: 2, //0-4
+                display: true, //true|false
+                position: 'right', //false|left|right
+            })
+        );
+
+        // jquery
+        $(".btn1").on('click', function(){
+            var $inputAmount = $("#amount1"),
+                amount = $inputAmount.text().replace(regix, ''),
+                amount = parseFloat(amount) * 1.5;
+                
+                // direct callback on element
+                $inputAmount.tameCurrency({
+                    currency: 'CNY',
+                    decimals: 3, //0-4
+                    currency_symbol: true, //string|true
+                    amount: amount,
+                });
+        });  
+        
+        // javascript 
+        $("#amount2").text(
+            tameCurrency.format({
+                currency: 'EUR',
+                style: 'decimal',
+                amount: 23900,
+                decimals: 2, //0-4
+                space: true, //true|false
+                display: true, //true|false
+                position: 'left', //false|left|right
+            })
+        );
+
+        // javascript 
+        $(".btn2").on('click', function(){
+            var inputElem = document.getElementById('amount2'),
+                amount = inputElem.innerText.replace(regix, ''),
+                amount = parseFloat(amount) * 1.5;
+
+                tameCurrency.input('#amount2', {
+                    currency: 'CNY',
+                    amount: amount,
+                });
+        });  
+    </script>
+</body>
+</html>

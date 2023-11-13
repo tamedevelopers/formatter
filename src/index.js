@@ -1,0 +1,1 @@
+import currencyFormat from 'tame-formatter';
